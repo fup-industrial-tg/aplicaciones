@@ -42,7 +42,7 @@ export const CONCEPTOS = ['Aprobado sin modificaciones', 'Aprobado con modificac
 export async function getConfig() { return { ...CONFIG_DEF, ...(await db.kv('config', {})) }; }
 export const setConfig = (c) => db.setKv('config', c);
 // ---- Modo administrador: único que puede editar los parámetros y el calendario. Solo se guarda la huella SHA-256 del código (sin distinguir mayúsculas).
-const ADMIN_HUELLA = 'b2396aa787dda8aeec59c02dc41ec16f4646712f0159164b6a2ccecd561ff7f1';
+const ADMIN_HUELLA = 'a96b99751d8f0e18fe2115209c0d5f421c38e04aef4a226ab1864e9ca9d27f08';
 export async function huella(txt) { const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(txt)); return [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, '0')).join(''); }
 // El código de fábrica va en el programa; el administrador puede cambiarlo desde Ajustes y el nuevo se guarda (solo su huella) en este dispositivo, fuera de la base de datos para que no viaje en los respaldos.
 const LS_HUELLA = 'adm_huella';
