@@ -13,11 +13,11 @@
   * { box-sizing:border-box; }
   body { margin:0; font-family:Arial,Helvetica,sans-serif; background:var(--fondo); color:var(--texto); line-height:1.5; }
   header { background:linear-gradient(135deg,var(--noche),var(--azul)); color:#fff; padding:26px 16px; }
-  .cab { max-width:1040px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; }
+  .cab { max-width:1360px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; }
   header img { width:72px; height:72px; border-radius:14px; background:#fff; padding:6px; flex-shrink:0; }
   header h1 { margin:0 0 4px; font-size:1.5rem; }
   header p { margin:0; color:#dbe8f3; }
-  main { max-width:1040px; margin:0 auto; padding:24px 16px 34px; display:grid; gap:20px; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); align-items:stretch; }
+  main { max-width:1360px; margin:0 auto; padding:24px 20px 34px; display:grid; gap:20px; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr); align-items:stretch; }
   .col { display:flex; flex-direction:column; gap:14px; }
   .titulo { margin:0; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--suave); }
   .tarjeta { background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:16px 18px; }
@@ -25,7 +25,7 @@
   .app .txt { flex:1; min-width:0; }
   .app h2 { margin:0 0 3px; font-size:1.08rem; color:var(--azul); }
   .app p { margin:0; font-size:.9rem; color:var(--suave); }
-  @media (prefers-color-scheme: dark) { .app h2, .inst h2 { color:var(--dorado); } }
+  @media (prefers-color-scheme: dark) { .app h2, .inst h2, .ayuda h2 { color:var(--dorado); } }
   a.boton { display:inline-block; background:var(--azul); color:#fff; text-decoration:none; font-weight:700; font-size:.92rem; padding:10px 18px; border-radius:10px; white-space:nowrap; }
   a.boton:hover { background:var(--noche); }
   .pasos { padding:6px 18px; flex:1; display:flex; flex-direction:column; justify-content:space-around; }
@@ -44,10 +44,15 @@
   a.desc:hover { background:var(--azul); color:#fff; }
   a.desc:hover small { color:#dbe8f3; }
   @media (prefers-color-scheme: dark) { a.desc { color:#fff; border-color:#4d86b5; } a.desc:hover { background:#1c4f78; } }
-  details { margin-top:auto; border-top:1px solid var(--borde); padding-top:10px; }
-  summary { cursor:pointer; font-weight:700; font-size:.9rem; }
-  details ul { margin:10px 0 0; padding-left:20px; color:var(--suave); font-size:.88rem; }
+  .ayuda h2 { margin:0 0 4px; font-size:1.08rem; color:var(--azul); }
+  .ayuda > p { margin:0 0 12px; font-size:.9rem; color:var(--suave); }
+  .ayuda h3 { margin:14px 0 6px; font-size:.95rem; }
+  .ayuda ol { margin:0; padding-left:20px; color:var(--suave); font-size:.9rem; }
+  .ayuda ol li { margin-bottom:5px; }
+  .ayuda ol b { color:var(--texto); }
+  .ayuda .aviso { margin-top:14px; padding:10px 12px; background:var(--suave-bg); border-radius:10px; font-size:.88rem; color:var(--suave); }
   footer { text-align:center; color:var(--suave); font-size:.82rem; padding:0 16px 28px; }
+  @media (max-width:1100px) { main { grid-template-columns:minmax(0,1fr) minmax(0,1fr); } .col-ayuda { grid-column:1 / -1; } }
   @media (max-width:780px) { main { grid-template-columns:minmax(0,1fr); } .app { flex-wrap:wrap; } header h1 { font-size:1.25rem; } }
 </style>
 </head>
@@ -101,14 +106,30 @@
         <a class="desc" href="https://github.com/fup-industrial-tg/aplicaciones/releases/latest/download/Extraccion_de_Datos_FUP_1.3.1.apk"><span>Android · .apk</span><small>9 MB</small></a>
         <a class="desc" href="https://github.com/fup-industrial-tg/aplicaciones/releases/latest/download/Instalar_Extraccion_de_Datos_FUP_1.3.1.exe"><span>Windows · .exe</span><small>83 MB</small></a>
       </div>
-      <details>
-        <summary>Ayuda para instalar los archivos</summary>
-        <ul>
-          <li><b>Android:</b> abre el archivo y permite «instalar apps desconocidas» solo para ese archivo. Si aparece un aviso de Play Protect, elige <b>Instalar de todos modos</b>.</li>
-          <li><b>Windows:</b> abre el archivo. Si aparece «Windows protegió su PC», pulsa <b>Más información → Ejecutar de todas formas</b>.</li>
-          <li><b>iPhone y iPad:</b> no admiten instaladores; usa las aplicaciones de la izquierda.</li>
-        </ul>
-      </details>
+    </section>
+  </aside>
+  <aside class="col col-ayuda">
+    <section class="tarjeta ayuda">
+      <h2>Ayuda para instalar los archivos</h2>
+      <p>Pasos para instalar los archivos que descargaste.</p>
+      <h3>Android</h3>
+      <ol>
+        <li>Descarga el archivo <b>.apk</b> en el celular y ábrelo.</li>
+        <li>Permite <b>«instalar apps desconocidas»</b> solo para ese archivo.</li>
+        <li>Si aparece un aviso de Play Protect, elige <b>Instalar de todos modos</b>: la aplicación no está en Play Store.</li>
+      </ol>
+      <h3>Windows</h3>
+      <ol>
+        <li>Descarga el archivo <b>.exe</b> y ábrelo (no pide administrador).</li>
+        <li>Si aparece <b>«Windows protegió su PC»</b>, pulsa <b>Más información</b> y luego <b>Ejecutar de todas formas</b>.</li>
+        <li>Elige la carpeta de instalación. Quedan accesos directos en el escritorio y en el menú Inicio.</li>
+      </ol>
+      <h3>iPhone y iPad</h3>
+      <ol>
+        <li>No admiten instaladores propios.</li>
+        <li>Abre una de las <b>aplicaciones web</b> en Safari, pulsa <b>Compartir</b> y elige <b>Añadir a pantalla de inicio</b>.</li>
+      </ol>
+      <p class="aviso">Los archivos son seguros: los avisos aparecen porque los instaladores no tienen firma comercial.</p>
     </section>
   </aside>
 </main>
