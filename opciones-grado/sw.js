@@ -8,7 +8,7 @@ self.addEventListener('install', (e) => { e.waitUntil(caches.open(VERSION).then(
 self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then((k) => Promise.all(k.filter((x) => x !== VERSION && x !== 'pesados').map((x) => caches.delete(x)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', (e) => {
   const r = e.request; if (r.method !== 'GET' || new URL(r.url).origin !== location.origin) return;
-  const pesado = /\/(vendor|formatos|normativa|ejemplos|py)\//.test(r.url);
+  const pesado = /\/(vendor|formatos|normativa|ejemplos|py|manual)\//.test(r.url);
   e.respondWith((async () => {
     const cache = await caches.open(pesado ? 'pesados' : VERSION); const hit = await cache.match(r);
     if (pesado && hit) return hit;                       // los archivos pesados: primero la copia guardada

@@ -5,6 +5,9 @@ export async function render() {
   const sec = (t, ...c) => h('section', { class: 'tarj', style: { marginBottom: '12px' } }, h('h3', t), ...c);
   const li = (a) => h('ul', { class: 'l' }, a.map((x) => h('li', x)));
   return h('div',
+    sec('Manual de uso', h('p', 'Guía completa de esta aplicación, paso a paso. Después de abrirlo una vez, queda disponible sin conexión.'),
+      h('div', { class: 'fila' }, h('a', { class: 'btn', href: 'manual/Manual_de_Uso_Extraccion_de_Datos.pdf', target: '_blank', rel: 'noopener' }, 'Abrir el manual (PDF)'),
+        h('a', { class: 'btn sec', href: 'manual/Manual_de_Uso_Extraccion_de_Datos.pdf', download: 'Manual_de_Uso_Extraccion_de_Datos.pdf' }, 'Descargar'))),
     sec('Para qué sirve', h('p', 'Lee los formatos Excel de opciones de grado que ya fueron diligenciados y reúne sus datos en un solo Excel (y un CSV), con una fila por documento. Sirve para tener en una tabla los datos de muchos anteproyectos, evaluaciones o actas, sin copiarlos a mano.')),
     sec('Pasos',
       li(['Abre la sección «Extracción de datos» y arrastra los archivos .xlsx diligenciados (o pulsa «Elegir archivos»). Todos deben ser del mismo formato.',

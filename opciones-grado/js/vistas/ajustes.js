@@ -21,6 +21,9 @@ export async function render({ ctx }) {
   const cambiar = async () => { const r = await cambiarCodigoAdmin(cAct.value, cNue.value, cRep.value); toast(r.msg, r.ok ? 'ok' : 'mal'); if (r.ok) ctx.refrescar(); };
   const sec = (t, ...c) => h('section', { class: 'tarj', style: { marginBottom: '12px' } }, h('h3', t), ...c);
   return h('div',
+    sec('Manual de uso', h('p', { class: 'nota' }, 'Guía completa de esta aplicación: qué hace cada sección, paso a paso. Después de abrirlo una vez, queda disponible sin conexión.'),
+      h('div', { class: 'fila' }, h('a', { class: 'btn', href: 'manual/Manual_de_Uso_Opciones_de_Grado.pdf', target: '_blank', rel: 'noopener' }, 'Abrir el manual (PDF)'),
+        h('a', { class: 'btn sec', href: 'manual/Manual_de_Uso_Opciones_de_Grado.pdf', download: 'Manual_de_Uso_Opciones_de_Grado.pdf' }, 'Descargar'))),
     sec('Apariencia', h('p', { class: 'nota' }, 'Claro es el tema por defecto. También puedes cambiarlo con el botón de la barra superior. Se recuerda solo en este dispositivo.'),
       h('div', { class: 'fila' }, [['claro', '☀ Claro'], ['oscuro', '🌙 Oscuro'], ['auto', 'Automático (el del dispositivo)']].map(([v, t]) => h('button', { class: 'btn ' + (getTema() === v ? '' : 'sec'), onclick: () => { setTema(v); ctx.refrescar(); } }, t)))),
     sec('Administrador', adm
