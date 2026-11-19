@@ -52,6 +52,8 @@
   .ayuda ol li { margin-bottom:2px; }
   .ayuda ol b { color:var(--texto); }
   .ayuda .aviso { margin-top:10px; padding:8px 11px; background:var(--suave-bg); border-radius:10px; font-size:.88rem; color:var(--suave); }
+  .ayuda summary { list-style:none; cursor:default; } .ayuda summary::-webkit-details-marker { display:none; } .ayuda summary h2 { display:inline; }
+  @media (max-width:780px) { .ayuda summary { cursor:pointer; display:flex; justify-content:space-between; align-items:center; } .ayuda summary::after { content:"▾"; font-size:1.2rem; color:var(--azul); } .ayuda details[open] summary::after { content:"▴"; } .ayuda details[open] summary { margin-bottom:6px; } }
   footer { text-align:center; color:var(--suave); font-size:.8rem; padding:0 16px 12px; }
   @media (max-width:1100px) { main { grid-template-columns:minmax(0,1fr) minmax(0,1fr); } .col-ayuda { grid-column:1 / -1; } }
   @media (max-width:780px) { main { grid-template-columns:minmax(0,1fr); } .app { flex-wrap:wrap; } header h1 { font-size:1.25rem; } }
@@ -111,7 +113,7 @@
   </aside>
   <aside class="col col-ayuda">
     <section class="tarjeta ayuda">
-      <h2>Ayuda para instalar los archivos</h2>
+<details id="acordeon" open><summary><h2>Ayuda para instalar los archivos</h2></summary>
       <p>Pasos para instalar los archivos que descargaste.</p>
       <h3>Android</h3>
       <ol>
@@ -131,9 +133,15 @@
         <li>Abre una de las <b>aplicaciones web</b> en Safari, pulsa <b>Compartir</b> y elige <b>Añadir a pantalla de inicio</b>.</li>
       </ol>
       <p class="aviso">Los archivos son seguros: los avisos aparecen porque los instaladores no tienen firma comercial.</p>
-    </section>
+    </details></section>
   </aside>
 </main>
+<script>
+(function(){var d=document.getElementById("acordeon"),m=matchMedia("(max-width:780px)");
+function aj(){if(m.matches){d.removeAttribute("open")}else{d.setAttribute("open","")}}
+aj();m.addEventListener("change",aj);
+d.querySelector("summary").addEventListener("click",function(e){if(!m.matches)e.preventDefault()});})();
+</script>
 
 </body>
 </html>
