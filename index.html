@@ -32,6 +32,13 @@
   .nota { margin-top:26px; font-size:.9rem; color:var(--suave); }
   .nota a { color:var(--azul); }
   @media (prefers-color-scheme: dark) { .nota a { color:var(--dorado); } }
+  a.boton.sec { background:transparent; color:var(--azul); border:2px solid var(--azul); margin:0 8px 8px 0; padding:10px 14px; font-size:.93rem; }
+  a.boton.sec:hover { background:var(--azul); color:#fff; }
+  @media (prefers-color-scheme: dark) { a.boton.sec { color:#fff; border-color:#4d86b5; } a.boton.sec:hover { background:#1c4f78; } }
+  .tarjeta small { font-weight:400; color:var(--suave); font-size:.8rem; }
+  details { margin-top:14px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:12px 16px; }
+  summary { cursor:pointer; font-weight:700; }
+  details ul { margin:10px 0 0; padding-left:20px; color:var(--suave); font-size:.92rem; }
   footer { text-align:center; color:var(--suave); font-size:.82rem; padding:0 16px 28px; }
 </style>
 </head>
@@ -63,7 +70,28 @@
     <div class="tarjeta"><h4>Computador</h4><ol><li>Ábrela en <b>Chrome</b> o <b>Edge</b>.</li><li>Pulsa el icono <b>Instalar</b> al final de la barra de direcciones.</li><li>Confirma con <b>Instalar</b>.</li></ol></div>
   </div>
 
-  <p class="nota">¿Prefieres un instalador? Los archivos para Android (<b>.apk</b>) y Windows (<b>.exe</b>) están en la sección de <a href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest">descargas</a>.</p>
+  <h3 id="instaladores">Descargar los instaladores (opcional)</h3>
+  <p style="margin:0 0 12px;color:var(--suave)">Si prefieres instalar un archivo en lugar de usar el navegador, descarga el de tu dispositivo. Funcionan sin internet.</p>
+  <div class="tarjetas">
+    <section class="tarjeta">
+      <h2>Opciones de Grado <small>versión 1.4.7</small></h2>
+      <a class="boton sec" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Opciones_de_Grado_FUP_1.4.7.apk">Android · .apk (25 MB)</a>
+      <a class="boton sec" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Instalar_Opciones_de_Grado_FUP_1.4.7.exe">Windows · .exe (97 MB)</a>
+    </section>
+    <section class="tarjeta">
+      <h2>Extracción de Datos <small>versión 1.3.1</small></h2>
+      <a class="boton sec" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Extraccion_de_Datos_FUP_1.3.1.apk">Android · .apk (9 MB)</a>
+      <a class="boton sec" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Instalar_Extraccion_de_Datos_FUP_1.3.1.exe">Windows · .exe (83 MB)</a>
+    </section>
+  </div>
+  <details>
+    <summary>Ayuda para instalar los archivos</summary>
+    <ul>
+      <li><b>Android:</b> abre el archivo <b>.apk</b> y permite «instalar apps desconocidas» solo para ese archivo. Si aparece un aviso de Play Protect, elige <b>Instalar de todos modos</b>.</li>
+      <li><b>Windows:</b> abre el archivo <b>.exe</b>. Si aparece «Windows protegió su PC», pulsa <b>Más información → Ejecutar de todas formas</b>.</li>
+      <li><b>iPhone y iPad:</b> no admiten instaladores; usa las aplicaciones de arriba e instálalas desde Safari con <b>Compartir → Añadir a pantalla de inicio</b>.</li>
+    </ul>
+  </details>
 </main>
 <footer>Programa de Ingeniería Industrial · Fundación Universitaria de Popayán</footer>
 </body>
