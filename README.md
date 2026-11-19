@@ -2,7 +2,7 @@
 
 Descarga e instala las aplicaciones del programa de Ingeniería Industrial de la Fundación Universitaria de Popayán (FUP). Funcionan sin internet después de instaladas.
 
-## Usar sin instalar
+## Aplicaciones web
 
 Abre **<https://fup-industrial-tg.github.io/descargas-aplicaciones/>** desde cualquier celular o computador (iPhone, Android o Windows). Desde ahí puedes abrir las dos aplicaciones e instalarlas con un toque, sin descargar archivos.
 
@@ -26,7 +26,7 @@ Entra a **[la última versión (Releases)](https://github.com/fup-industrial-tg/
 3. Elige la carpeta de instalación. Quedan accesos directos en el escritorio y en el menú Inicio.
 
 ## iPhone
-Los iPhone no admiten instaladores propios: usa la opción de arriba («Usar sin instalar») y, desde Safari, *Compartir → Añadir a pantalla de inicio*.
+Los iPhone no admiten instaladores propios: usa la opción de arriba («Aplicaciones web») y, desde Safari, *Compartir → Añadir a pantalla de inicio*.
 
 ---
 Programa de Ingeniería Industrial · Fundación Universitaria de Popayán. Este repositorio contiene las aplicaciones publicadas y sus instaladores.
