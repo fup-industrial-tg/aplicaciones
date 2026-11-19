@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aplicaciones de Opciones de Grado · FUP</title>
+<meta name="description" content="Opciones de Grado y Extracción de Datos del programa de Ingeniería Industrial de la Fundación Universitaria de Popayán.">
+<meta name="theme-color" content="#005790">
+<link rel="icon" href="opciones-grado/iconos/icon-192.png">
+<style>
+  :root { --azul:#005790; --noche:#002C47; --dorado:#C9A45C; --fondo:#f4f7fa; --tarjeta:#ffffff; --texto:#1f2d3d; --suave:#5b6b7b; --borde:#d6e1ea; }
+  @media (prefers-color-scheme: dark) { :root { --fondo:#0b1b27; --tarjeta:#12283a; --texto:#e8eef4; --suave:#a9b9c8; --borde:#24425a; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Arial,Helvetica,sans-serif; background:var(--fondo); color:var(--texto); line-height:1.5; }
+  header { background:linear-gradient(135deg,var(--noche),var(--azul)); color:#fff; padding:28px 16px 34px; text-align:center; }
+  header img { width:76px; height:76px; border-radius:16px; background:#fff; padding:6px; }
+  header h1 { margin:12px 0 6px; font-size:1.55rem; }
+  header p { margin:0 auto; max-width:560px; color:#dbe8f3; }
+  main { max-width:880px; margin:0 auto; padding:22px 16px 40px; }
+  .tarjetas { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+  .tarjeta { background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:20px; }
+  .tarjeta h2 { margin:0 0 6px; font-size:1.15rem; color:var(--azul); }
+  @media (prefers-color-scheme: dark) { .tarjeta h2 { color:var(--dorado); } }
+  .tarjeta p { margin:0 0 14px; color:var(--suave); font-size:.95rem; }
+  a.boton { display:inline-block; background:var(--azul); color:#fff; text-decoration:none; font-weight:700; padding:12px 18px; border-radius:10px; }
+  a.boton:hover { background:var(--noche); }
+  h3 { margin:30px 0 10px; font-size:1.05rem; }
+  .pasos { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+  .pasos .tarjeta { padding:16px; }
+  .pasos h4 { margin:0 0 6px; font-size:.98rem; }
+  .pasos ol { margin:0; padding-left:20px; color:var(--suave); font-size:.92rem; }
+  .nota { margin-top:26px; font-size:.9rem; color:var(--suave); }
+  .nota a { color:var(--azul); }
+  @media (prefers-color-scheme: dark) { .nota a { color:var(--dorado); } }
+  footer { text-align:center; color:var(--suave); font-size:.82rem; padding:0 16px 28px; }
+</style>
+</head>
+<body>
+<header>
+  <img src="opciones-grado/iconos/icon-192.png" alt="Escudo de la FUP">
+  <h1>Aplicaciones de Opciones de Grado</h1>
+  <p>Programa de Ingeniería Industrial · Fundación Universitaria de Popayán</p>
+</header>
+<main>
+  <div class="tarjetas">
+    <section class="tarjeta">
+      <h2>Opciones de Grado</h2>
+      <p>Requisitos, formatos para descargar, reglamento, procedimientos, calendario y ficha de invitación.</p>
+      <a class="boton" href="opciones-grado/">Abrir la aplicación</a>
+    </section>
+    <section class="tarjeta">
+      <h2>Extracción de Datos</h2>
+      <p>Reúne en un Excel los datos de los formatos de opciones de grado diligenciados, sin enviarlos a ningún servidor.</p>
+      <a class="boton" href="extraccion-datos/">Abrir la aplicación</a>
+    </section>
+  </div>
+
+  <h3>Cómo instalarlas (una sola vez)</h3>
+  <p style="margin:0 0 12px;color:var(--suave)">Abre una de las aplicaciones desde esta página y sigue los pasos de tu dispositivo. Después queda como una aplicación más y funciona también sin internet.</p>
+  <div class="pasos">
+    <div class="tarjeta"><h4>iPhone y iPad</h4><ol><li>Ábrela en <b>Safari</b>.</li><li>Pulsa <b>Compartir</b>.</li><li>Elige <b>Añadir a pantalla de inicio</b>.</li></ol></div>
+    <div class="tarjeta"><h4>Android</h4><ol><li>Ábrela en <b>Chrome</b>.</li><li>Pulsa el menú <b>⋮</b>.</li><li>Elige <b>Instalar aplicación</b> o <b>Añadir a pantalla de inicio</b>.</li></ol></div>
+    <div class="tarjeta"><h4>Computador</h4><ol><li>Ábrela en <b>Chrome</b> o <b>Edge</b>.</li><li>Pulsa el icono <b>Instalar</b> al final de la barra de direcciones.</li><li>Confirma con <b>Instalar</b>.</li></ol></div>
+  </div>
+
+  <p class="nota">¿Prefieres un instalador? Los archivos para Android (<b>.apk</b>) y Windows (<b>.exe</b>) están en la sección de <a href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest">descargas</a>.</p>
+</main>
+<footer>Programa de Ingeniería Industrial · Fundación Universitaria de Popayán</footer>
+</body>
+</html>
