@@ -4,11 +4,11 @@ Descarga e instala las aplicaciones del programa de Ingeniería Industrial de la
 
 ## Aplicaciones web
 
-Abre **<https://fup-industrial-tg.github.io/descargas-aplicaciones/>** desde cualquier celular o computador (iPhone, Android o Windows). Desde ahí puedes abrir las dos aplicaciones e instalarlas con un toque, sin descargar archivos.
+Abre **<https://fup-industrial-tg.github.io/aplicaciones/>** desde cualquier celular o computador (iPhone, Android o Windows). Desde ahí puedes abrir las dos aplicaciones e instalarlas con un toque, sin descargar archivos.
 
 ## Descargar los instaladores
 
-Entra a **[la última versión (Releases)](https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest)** y descarga el archivo que corresponda a tu dispositivo:
+Entra a **[la última versión (Releases)](https://github.com/fup-industrial-tg/aplicaciones/releases/latest)** y descarga el archivo que corresponda a tu dispositivo:
 
 | Aplicación | Android (celular) | Windows (computador) |
 |---|---|---|
