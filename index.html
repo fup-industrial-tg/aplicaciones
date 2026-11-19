@@ -8,90 +8,109 @@
 <meta name="theme-color" content="#005790">
 <link rel="icon" href="opciones-grado/iconos/icon-192.png">
 <style>
-  :root { --azul:#005790; --noche:#002C47; --dorado:#C9A45C; --fondo:#f4f7fa; --tarjeta:#ffffff; --texto:#1f2d3d; --suave:#5b6b7b; --borde:#d6e1ea; }
-  @media (prefers-color-scheme: dark) { :root { --fondo:#0b1b27; --tarjeta:#12283a; --texto:#e8eef4; --suave:#a9b9c8; --borde:#24425a; } }
+  :root { --azul:#005790; --noche:#002C47; --dorado:#C9A45C; --fondo:#f4f7fa; --tarjeta:#ffffff; --suave-bg:#eef3f7; --texto:#1f2d3d; --suave:#5b6b7b; --borde:#d6e1ea; }
+  @media (prefers-color-scheme: dark) { :root { --fondo:#0b1b27; --tarjeta:#12283a; --suave-bg:#0e2232; --texto:#e8eef4; --suave:#a9b9c8; --borde:#24425a; } }
   * { box-sizing:border-box; }
   body { margin:0; font-family:Arial,Helvetica,sans-serif; background:var(--fondo); color:var(--texto); line-height:1.5; }
-  header { background:linear-gradient(135deg,var(--noche),var(--azul)); color:#fff; padding:28px 16px 34px; text-align:center; }
-  header img { width:76px; height:76px; border-radius:16px; background:#fff; padding:6px; }
-  header h1 { margin:12px 0 6px; font-size:1.55rem; }
-  header p { margin:0 auto; max-width:560px; color:#dbe8f3; }
-  main { max-width:880px; margin:0 auto; padding:22px 16px 40px; }
-  .tarjetas { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
-  .tarjeta { background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:20px; }
-  .tarjeta h2 { margin:0 0 6px; font-size:1.15rem; color:var(--azul); }
-  @media (prefers-color-scheme: dark) { .tarjeta h2 { color:var(--dorado); } }
-  .tarjeta p { margin:0 0 14px; color:var(--suave); font-size:.95rem; }
-  a.boton { display:inline-block; background:var(--azul); color:#fff; text-decoration:none; font-weight:700; padding:12px 18px; border-radius:10px; }
+  header { background:linear-gradient(135deg,var(--noche),var(--azul)); color:#fff; padding:26px 16px; }
+  .cab { max-width:1040px; margin:0 auto; display:flex; align-items:center; gap:16px; }
+  header img { width:68px; height:68px; border-radius:14px; background:#fff; padding:6px; flex-shrink:0; }
+  header h1 { margin:0 0 4px; font-size:1.5rem; }
+  header p { margin:0; color:#dbe8f3; }
+  main { max-width:1040px; margin:0 auto; padding:24px 16px 34px; display:grid; gap:20px; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); align-items:stretch; }
+  .col { display:flex; flex-direction:column; gap:14px; }
+  .titulo { margin:0; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--suave); }
+  .tarjeta { background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:16px 18px; }
+  .app { display:flex; align-items:center; gap:16px; }
+  .app .txt { flex:1; min-width:0; }
+  .app h2 { margin:0 0 3px; font-size:1.08rem; color:var(--azul); }
+  .app p { margin:0; font-size:.9rem; color:var(--suave); }
+  @media (prefers-color-scheme: dark) { .app h2, .inst h2 { color:var(--dorado); } }
+  a.boton { display:inline-block; background:var(--azul); color:#fff; text-decoration:none; font-weight:700; font-size:.92rem; padding:10px 18px; border-radius:10px; white-space:nowrap; }
   a.boton:hover { background:var(--noche); }
-  h3 { margin:30px 0 10px; font-size:1.05rem; }
-  .pasos { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
-  .pasos .tarjeta { padding:16px; }
-  .pasos h4 { margin:0 0 6px; font-size:.98rem; }
-  .pasos ol { margin:0; padding-left:20px; color:var(--suave); font-size:.92rem; }
-  .nota { margin-top:26px; font-size:.9rem; color:var(--suave); }
-  .nota a { color:var(--azul); }
-  @media (prefers-color-scheme: dark) { .nota a { color:var(--dorado); } }
-  a.boton.sec { background:transparent; color:var(--azul); border:2px solid var(--azul); margin:0 8px 8px 0; padding:10px 14px; font-size:.93rem; }
-  a.boton.sec:hover { background:var(--azul); color:#fff; }
-  @media (prefers-color-scheme: dark) { a.boton.sec { color:#fff; border-color:#4d86b5; } a.boton.sec:hover { background:#1c4f78; } }
-  .tarjeta small { font-weight:400; color:var(--suave); font-size:.8rem; }
-  details { margin-top:14px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:12px 16px; }
-  summary { cursor:pointer; font-weight:700; }
-  details ul { margin:10px 0 0; padding-left:20px; color:var(--suave); font-size:.92rem; }
+  .pasos { padding:6px 18px; flex:1; display:flex; flex-direction:column; justify-content:space-around; }
+  .paso { padding:11px 0; border-bottom:1px solid var(--borde); font-size:.93rem; }
+  .paso:last-child { border-bottom:0; }
+  .paso b { color:var(--texto); }
+  .paso span { color:var(--suave); }
+  .inst { border:1.5px solid var(--azul); display:flex; flex-direction:column; gap:12px; }
+  .inst h2 { margin:0; font-size:1.08rem; color:var(--azul); }
+  .inst > p { margin:0; font-size:.9rem; color:var(--suave); }
+  .grupo { background:var(--suave-bg); border-radius:10px; padding:12px 14px; }
+  .grupo h3 { margin:0 0 9px; font-size:.95rem; }
+  .grupo h3 small { font-weight:400; color:var(--suave); font-size:.8rem; }
+  a.desc { display:flex; justify-content:space-between; align-items:center; gap:10px; border:1.5px solid var(--azul); color:var(--azul); text-decoration:none; font-weight:700; font-size:.88rem; padding:9px 12px; border-radius:9px; margin-top:7px; background:transparent; }
+  a.desc small { font-weight:400; color:var(--suave); }
+  a.desc:hover { background:var(--azul); color:#fff; }
+  a.desc:hover small { color:#dbe8f3; }
+  @media (prefers-color-scheme: dark) { a.desc { color:#fff; border-color:#4d86b5; } a.desc:hover { background:#1c4f78; } }
+  details { margin-top:auto; border-top:1px solid var(--borde); padding-top:10px; }
+  summary { cursor:pointer; font-weight:700; font-size:.9rem; }
+  details ul { margin:10px 0 0; padding-left:20px; color:var(--suave); font-size:.88rem; }
   footer { text-align:center; color:var(--suave); font-size:.82rem; padding:0 16px 28px; }
+  @media (max-width:780px) { main { grid-template-columns:minmax(0,1fr); } .app { flex-wrap:wrap; } .cab { gap:12px; } header h1 { font-size:1.25rem; } }
 </style>
 </head>
 <body>
 <header>
-  <img src="opciones-grado/iconos/icon-192.png" alt="Escudo de la FUP">
-  <h1>Aplicaciones de Opciones de Grado</h1>
-  <p>Programa de Ingeniería Industrial · Fundación Universitaria de Popayán</p>
+  <div class="cab">
+    <img src="opciones-grado/iconos/icon-192.png" alt="Escudo de la FUP">
+    <div>
+      <h1>Aplicaciones de Opciones de Grado</h1>
+      <p>Programa de Ingeniería Industrial · Fundación Universitaria de Popayán</p>
+    </div>
+  </div>
 </header>
 <main>
-  <div class="tarjetas">
-    <section class="tarjeta">
-      <h2>Opciones de Grado</h2>
-      <p>Requisitos, formatos para descargar, reglamento, procedimientos, calendario y ficha de invitación.</p>
-      <a class="boton" href="opciones-grado/">Abrir la aplicación</a>
+  <div class="col">
+    <p class="titulo">Usar sin instalar</p>
+    <section class="tarjeta app">
+      <div class="txt">
+        <h2>Opciones de Grado</h2>
+        <p>Requisitos, formatos para descargar, reglamento, procedimientos, calendario y ficha de invitación.</p>
+      </div>
+      <a class="boton" href="opciones-grado/">Abrir</a>
     </section>
-    <section class="tarjeta">
-      <h2>Extracción de Datos</h2>
-      <p>Reúne en un Excel los datos de los formatos de opciones de grado diligenciados, sin enviarlos a ningún servidor.</p>
-      <a class="boton" href="extraccion-datos/">Abrir la aplicación</a>
+    <section class="tarjeta app">
+      <div class="txt">
+        <h2>Extracción de Datos</h2>
+        <p>Reúne en un Excel los datos de los formatos diligenciados, sin enviarlos a ningún servidor.</p>
+      </div>
+      <a class="boton" href="extraccion-datos/">Abrir</a>
     </section>
+
+    <p class="titulo" style="margin-top:6px">Cómo instalarlas</p>
+    <div class="tarjeta pasos">
+      <div class="paso"><b>iPhone y iPad</b> <span>· En Safari, pulsa Compartir y elige Añadir a pantalla de inicio.</span></div>
+      <div class="paso"><b>Android</b> <span>· En Chrome, pulsa Instalar en el aviso o, en el menú ⋮, Instalar aplicación.</span></div>
+      <div class="paso"><b>Computador</b> <span>· En Chrome o Edge, pulsa el icono Instalar al final de la barra de direcciones.</span></div>
+    </div>
   </div>
 
-  <h3>Cómo instalarlas (una sola vez)</h3>
-  <p style="margin:0 0 12px;color:var(--suave)">Abre una de las aplicaciones desde esta página y sigue los pasos de tu dispositivo. Después queda como una aplicación más y funciona también sin internet.</p>
-  <div class="pasos">
-    <div class="tarjeta"><h4>iPhone y iPad</h4><ol><li>Ábrela en <b>Safari</b>.</li><li>Pulsa <b>Compartir</b>.</li><li>Elige <b>Añadir a pantalla de inicio</b>.</li></ol></div>
-    <div class="tarjeta"><h4>Android</h4><ol><li>Ábrela en <b>Chrome</b>.</li><li>Pulsa el menú <b>⋮</b>.</li><li>Elige <b>Instalar aplicación</b> o <b>Añadir a pantalla de inicio</b>.</li></ol></div>
-    <div class="tarjeta"><h4>Computador</h4><ol><li>Ábrela en <b>Chrome</b> o <b>Edge</b>.</li><li>Pulsa el icono <b>Instalar</b> al final de la barra de direcciones.</li><li>Confirma con <b>Instalar</b>.</li></ol></div>
-  </div>
-
-  <h3 id="instaladores">Descargar los instaladores (opcional)</h3>
-  <p style="margin:0 0 12px;color:var(--suave)">Si prefieres instalar un archivo en lugar de usar el navegador, descarga el de tu dispositivo. Funcionan sin internet.</p>
-  <div class="tarjetas">
-    <section class="tarjeta">
-      <h2>Opciones de Grado <small>versión 1.4.7</small></h2>
-      <a class="boton sec" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Opciones_de_Grado_FUP_1.4.7.apk">Android · .apk (25 MB)</a>
-      <a class="boton sec" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Instalar_Opciones_de_Grado_FUP_1.4.7.exe">Windows · .exe (97 MB)</a>
+  <aside class="col">
+    <section class="tarjeta inst" id="instaladores">
+      <h2>Instaladores</h2>
+      <p>Si prefieres instalar un archivo en lugar de usar el navegador. Funcionan sin internet.</p>
+      <div class="grupo">
+        <h3>Opciones de Grado <small>versión 1.4.7</small></h3>
+        <a class="desc" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Opciones_de_Grado_FUP_1.4.7.apk"><span>Android · .apk</span><small>25 MB</small></a>
+        <a class="desc" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Instalar_Opciones_de_Grado_FUP_1.4.7.exe"><span>Windows · .exe</span><small>97 MB</small></a>
+      </div>
+      <div class="grupo">
+        <h3>Extracción de Datos <small>versión 1.3.1</small></h3>
+        <a class="desc" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Extraccion_de_Datos_FUP_1.3.1.apk"><span>Android · .apk</span><small>9 MB</small></a>
+        <a class="desc" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Instalar_Extraccion_de_Datos_FUP_1.3.1.exe"><span>Windows · .exe</span><small>83 MB</small></a>
+      </div>
+      <details>
+        <summary>Ayuda para instalar los archivos</summary>
+        <ul>
+          <li><b>Android:</b> abre el archivo y permite «instalar apps desconocidas» solo para ese archivo. Si aparece un aviso de Play Protect, elige <b>Instalar de todos modos</b>.</li>
+          <li><b>Windows:</b> abre el archivo. Si aparece «Windows protegió su PC», pulsa <b>Más información → Ejecutar de todas formas</b>.</li>
+          <li><b>iPhone y iPad:</b> no admiten instaladores; usa las aplicaciones de la izquierda.</li>
+        </ul>
+      </details>
     </section>
-    <section class="tarjeta">
-      <h2>Extracción de Datos <small>versión 1.3.1</small></h2>
-      <a class="boton sec" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Extraccion_de_Datos_FUP_1.3.1.apk">Android · .apk (9 MB)</a>
-      <a class="boton sec" href="https://github.com/fup-industrial-tg/descargas-aplicaciones/releases/latest/download/Instalar_Extraccion_de_Datos_FUP_1.3.1.exe">Windows · .exe (83 MB)</a>
-    </section>
-  </div>
-  <details>
-    <summary>Ayuda para instalar los archivos</summary>
-    <ul>
-      <li><b>Android:</b> abre el archivo <b>.apk</b> y permite «instalar apps desconocidas» solo para ese archivo. Si aparece un aviso de Play Protect, elige <b>Instalar de todos modos</b>.</li>
-      <li><b>Windows:</b> abre el archivo <b>.exe</b>. Si aparece «Windows protegió su PC», pulsa <b>Más información → Ejecutar de todas formas</b>.</li>
-      <li><b>iPhone y iPad:</b> no admiten instaladores; usa las aplicaciones de arriba e instálalas desde Safari con <b>Compartir → Añadir a pantalla de inicio</b>.</li>
-    </ul>
-  </details>
+  </aside>
 </main>
 <footer>Programa de Ingeniería Industrial · Fundación Universitaria de Popayán</footer>
 </body>
